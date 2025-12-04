@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es"> 
+ <head></head> 
+ <body> 
+  <h1> Hola bienvenido a conectado con Cristo </h1> 
+  <div> 
+   <br> 
+  </div> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Mi Primera Página</title> 
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .caja {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style> 
+  <h1>Bienvenido a mi página</h1> 
+  <div class="caja"> 
+   <p>puedo ayudarte</p> 
+  </div> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Botón para Escribir Comentario</title> 
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0a0f1f;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        button {
+            padding: 12px 24px;
+            background: #00eaff;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 0 15px #00eaff;
+            transition: 0.3s;
+        }
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Contenedor del comentario */
+        #comentarioBox {
+            margin-top: 20px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        textarea {
+            width: 80%;
+            height: 120px;
+            border-radius: 10px;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        #comentarios {
+            margin-top: 20px;
+            padding: 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            width: 80%;
+            display: inline-block;
+            text-align: left;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+    </style> 
+  <script>
+        function abrirComentario() {
+            document.getElementById("comentarioBox").style.display = "block";
+        }
+
+        function enviarComentario() {
+            let texto = document.getElementById("textoComentario").value;
+            if (texto.trim() === "") {
+                alert("Escribe un comentario.");
+                return;
+            }
+
+            let contenedor = document.getElementById("comentarios");
+            let nuevoComentario = document.createElement("p");
+            nuevoComentario.textContent = "👉 " + texto;
+            contenedor.appendChild(nuevoComentario);
+
+            document.getElementById("textoComentario").value = "";
+        }
+    </script> 
+  <h1>Botón para Escribir Comentarios</h1> <button onclick="abrirComentario()">Escribir un comentario</button> 
+  <div id="comentarioBox"> <textarea id="textoComentario" placeholder="Escribe tu comentario aquí..."></textarea> 
+   <br>
+   <br> <button onclick="enviarComentario()">Enviar Comentario</button> 
+  </div> 
+  <div id="comentarios"> 
+   <h3>Comentarios:</h3> 
+  </div> 
+ 
+<button onclick="enviarCorreo()">Enviar Comentario</button>
+
+<script>
+function enviarCorreo() {
+    let texto = document.getElementById("textoComentario").value;
+
+    if (texto.trim() === "") {
+        alert("Escribe un comentario.");
+        return;
+    }
+
+    let email = "ignaciojulieta0@gmail.com";  // ← cambia esto
+    let asunto = encodeURIComponent("Nuevo comentario desde la página");
+    let cuerpo = encodeURIComponent(texto);
+
+    window.location.href = `mailto:${email}?subject=${asunto}&body=${cuerpo}`;
+}
+</script></body></html>
